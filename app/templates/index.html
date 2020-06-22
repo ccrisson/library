@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Hello, {{ current_user.username }}!</h1>
+  {% for book in books %}
+  <div>
+    <p><strong>{{ book.title }}</strong> - {{ book.author }}</p>
+    <p>Date Purchased: {{ book.date_of_purchase }}</p>
+    {% if book.notes != '' %}
+    <p>{{ book.notes }}</p>
+    {% endif %}
+  </div>
+  <br>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,5 @@
+{{ user.username }}'s Book list
+
+{% for book in books %}
+{{ book.title }} - {{ book.author }}/n
+{% endfor %}

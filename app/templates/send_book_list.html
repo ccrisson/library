@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Send your book list via email</h1>
+  {% if form %}
+  <form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.recipient.lable }}
+      <br>
+      {{ form.recipient(size=64) }}
+      <br>
+      {% for error in form.recipient.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>{{ form.submit }}</p>
+  </form>
+  {% endif %}
+{% endblock %}
