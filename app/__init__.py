@@ -50,7 +50,7 @@ def create_app(config_class=Config):
       app.logger.addHandler(mail_handler)
 
     if app.config['LOG_TO_STDOUT']:
-      steam_handler = logging.StreamHandler()
+      stream_handler = logging.StreamHandler()
       stream_handler.setLevel(loggin.INFO)
       app.logger.addHandler(stream_handler)
     else:
