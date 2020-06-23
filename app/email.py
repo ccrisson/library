@@ -14,6 +14,6 @@ def send_email(subject, sender, recipients, text_body, html_body):
   Thread(target=send_async_email, args=(current_app._get_current_object(), msg)).start()
 
 def send_book_list_email(user, recipients, book_list):
-  send_email('book list', sender=current_app['ADMINS'][0], recipients=[recipients], text_body = render_template('email/book_list.txt', user=user, books=book_list), html_body=render_template('email/book_list.html', user=user, books=book_list))
+  send_email('book list', sender=current_app.config['ADMINS'][0], recipients=[recipients], text_body = render_template('email/book_list.txt', user=user, books=book_list), html_body=render_template('email/book_list.html', user=user, books=book_list))
 
   
