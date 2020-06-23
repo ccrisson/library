@@ -1,1 +1,1 @@
-web: flask db upgrade; funicorn library:app
+web: flask db upgrade; gunicorn library:app
