@@ -49,6 +49,11 @@ def create_app(config_class=Config):
       mail_handler.setLevel(logging.ERROR)
       app.logger.addHandler(mail_handler)
 
+    if app.config['LOG_TO_STDOUT']:
+      steam_handler = logging.StreamHandler()
+      stream_handler.setLevel(loggin.INFO)
+      app.logger.addHandler(stream_handler)
+    else:
     if not os.path.exists('logs'):
       os.mkdir('logs')
     file_handler = RotatingFileHandler('logs/library.log', maxBytes=10240, backupCount=10)
