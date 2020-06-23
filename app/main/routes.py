@@ -36,6 +36,8 @@ def send_book_list():
     form = SendBookListForm()
     if form.validate_on_submit():
       send_book_list_email(current_user, form.recipient.data, books)
+      flash('Booklist sent!')
+      return redirect(url_for('main.index'))
     return render_template('send_book_list.html', title="Send Book List", books=books, form=form) 
   return redirect(url_for('auth/login'))
 
